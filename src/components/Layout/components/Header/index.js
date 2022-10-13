@@ -13,6 +13,7 @@ import {
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import Button from '~/components/Button';
 import images from '~/assets/images';
@@ -84,7 +85,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
+                    <Link to="/" className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok" />
+                    </Link>
                 </div>
 
                 <Search />
