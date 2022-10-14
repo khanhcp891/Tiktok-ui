@@ -1,7 +1,7 @@
-import Header from '~/components/Layout/components/Header';
+import Header from '~/layouts/components/Header';
 
 function HeaderOnly({ children }) {
-    console.log('Children: ', children);
+    // console.log('Children: ', children);
     return (
         <div>
             <Header />
