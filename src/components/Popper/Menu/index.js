@@ -8,8 +8,9 @@ import MenuItems from './MenuItems';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
+const defaultFn = () => {};
 
-function Menu({ children, items = [] }) {
+function Menu({ children, hideOnClick = false, items = [], onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -23,6 +24,8 @@ function Menu({ children, items = [] }) {
                     onClick={() => {
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
+                        } else {
+                            onChange(item);
                         }
                     }}
                 />
@@ -35,6 +38,7 @@ function Menu({ children, items = [] }) {
             delay={[0, 100]}
             offset={[10, 10]}
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
@@ -46,7 +50,7 @@ function Menu({ children, items = [] }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

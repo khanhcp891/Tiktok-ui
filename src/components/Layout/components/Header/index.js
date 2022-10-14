@@ -21,6 +21,7 @@ import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 import Search from './Search';
 import { MailIcons, MessIcons } from '~/components/Icons';
+import routersConfig from '~/config/routers';
 
 const cx = classNames.bind(styles);
 
@@ -32,10 +33,102 @@ const MENU_ITEM = [
             title: 'Language',
             data: [
                 {
+                    type: 'language',
                     code: 'en',
                     title: 'English',
                 },
                 {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Vietnamese',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
                     code: 'vi',
                     title: 'Vietnamese',
                 },
@@ -81,11 +174,19 @@ function Header() {
         },
     ];
 
+    const handleMenuChange = (menuItem) => {
+        switch (menuItem.type) {
+            case 'language':
+                break;
+            default:
+        }
+    };
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
                 <div className={cx('logo')}>
-                    <Link to="/" className={cx('logo-link')}>
+                    <Link to={routersConfig.Home} className={cx('logo-link')}>
                         <img src={images.logo} alt="Tiktok" />
                     </Link>
                 </div>
@@ -116,7 +217,7 @@ function Header() {
                         </>
                     )}
                     {/* link avatar: https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/6f742a138c51cf4c6ac049ea6f6ff6b4~c5_100x100.jpeg?x-expires=1665720000&x-signature=q6nfAGRV9giHQq0lGQDb%2BDzrA3g%3D */}
-                    <Menu items={currentUser ? userMenu : MENU_ITEM}>
+                    <Menu items={currentUser ? userMenu : MENU_ITEM} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
