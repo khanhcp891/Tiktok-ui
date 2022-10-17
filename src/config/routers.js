@@ -1,5 +1,5 @@
 const routers = {
-    Home: '/',
+    Home: '/home',
     Following: '/following',
     Profile: '/@:nickname',
     Upload: '/upload',
