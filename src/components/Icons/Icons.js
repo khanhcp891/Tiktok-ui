@@ -160,3 +160,35 @@ export const LiveActiveIcons = ({ className, width = '3.2rem', height = '3.2rem'
         ></path>
     </svg>
 );
+
+// export const LikeIcons = ({ className, width = '2.4rem', height = '2.4rem' }) => (
+//     <svg
+//         className={className}
+//         width={width}
+//         height={height}
+//         viewBox="0 0 24 24"
+//         fill="currentColor"
+//         xmlns="http://www.w3.org/2000/svg"
+//     >
+//         <use xlink:href="#svg-heart-fill"></use>
+//     </svg>
+// );
+
+// export const CommentIcons = ({ className, width = '2.4rem', height = '2.4rem' }) => (
+//     <svg
+//         className={className}
+//         width={width}
+//         height={height}
+//         viewBox="0 0 20 20"
+//         fill="currentColor"
+//         xmlns="http://www.w3.org/2000/svg"
+//     >
+//         <use xlink:href="#svg-ellipsis-right-fill"></use>
+//     </svg>
+// );
+
+// export const ShareIcons = ({ className, width = '2.4rem', height = '2.4rem' }) => (
+//     <svg className={className} width={width} height={height} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+//         <use xlink:href="#svg-pc-share"></use>
+//     </svg>
+// );

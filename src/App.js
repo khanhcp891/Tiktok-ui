@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Navigate, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouter } from '~/router';
 import { DefaultLayout } from '~/layouts';
-import Error_404 from './404';
+import Error404 from './404';
 
 function App() {
     // const renderLayout = (ChildrenComponent) => {
@@ -19,7 +19,7 @@ function App() {
         <div className="App">
             <Router>
                 <Routes>
-                    <Route path="*" element={<Error_404 status={404} />} />
+                    <Route path="*" element={<Error404 />} />
                     <Route path="/" element={<Navigate replace to="/home" />} />
                     {publicRouter.map((route, index) => {
                         // const Layout = route.layout || DefaultLayout;
