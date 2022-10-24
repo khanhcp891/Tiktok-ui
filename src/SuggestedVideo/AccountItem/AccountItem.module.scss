@@ -1,0 +1,36 @@
+.account-item {
+    display: flex;
+}
+
+.info {
+    flex: 1;
+    flex-direction: row;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    color: #161823;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.checkIcon {
+    margin-left: 6px;
+    color: rgb(120, 249, 249);
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #161823;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.follow-btn {
+    min-width: 88px;
+    height: 28px;
+}

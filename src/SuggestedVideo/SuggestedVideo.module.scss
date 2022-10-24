@@ -1,4 +1,14 @@
 .wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    padding: 20px;
+    border-bottom: 1px solid rgb(219, 217, 217);
 }
 
 .avatar--anchor {
@@ -13,29 +23,6 @@
 }
 
 .body {
-}
-
-.account-item {
-}
-
-.info {
-}
-
-.username {
-}
-
-.checkIcon {
-    margin-left: 6px;
-    color: rgb(120, 249, 249);
-}
-
-.name {
-}
-
-.video-item {
-}
-
-.video {
-    width: 275px;
-    height: 492px;
+    margin-left: 12px;
+    width: 624px;
 }

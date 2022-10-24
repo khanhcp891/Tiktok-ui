@@ -1,0 +1,38 @@
+.video-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.video {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 275px;
+    height: 492px;
+    margin-right: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.interactive {
+    display: flex;
+    flex-direction: column;
+}
+
+.interactive-btn {
+    width: 48px;
+    height: 48px;
+    color: rgb(22, 24, 35);
+    border-radius: 50%;
+    background-color: rgba(22, 24, 35, 0.06);
+    margin-top: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.icon {
+    box-sizing: border-box;
+    width: 50%;
+    height: 50%;
+}
