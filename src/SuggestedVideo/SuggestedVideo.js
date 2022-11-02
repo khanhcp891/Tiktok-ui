@@ -7,30 +7,21 @@ import VideoItem from './VideoItem/VideoItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedVideo() {
+function SuggestedVideo({ data = [] }) {
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('content')}>
-                <a className={cx('avatar-anchor')} href>
-                    <Image className={cx('avatar')} src="avatar" alt="avatar" />
-                </a>
+            {data.map((account) => (
+                <div className={cx('content')}>
+                    <a className={cx('avatar-anchor')} href>
+                        <Image className={cx('avatar')} src={account.avatar} alt="avatar" />
+                    </a>
 
-                <div className={cx('body')}>
-                    <AccountItem />
-                    <VideoItem />
+                    <div className={cx('body')}>
+                        <AccountItem key={account.id} data={account} />
+                        <VideoItem key={account.id} data={account} />
+                    </div>
                 </div>
-            </div>
-
-            <div className={cx('content')}>
-                <a className={cx('avatar-anchor')} href>
-                    <Image className={cx('avatar')} src="avatar" alt="avatar" />
-                </a>
-
-                <div className={cx('body')}>
-                    <AccountItem />
-                    <VideoItem />
-                </div>
-            </div>
+            ))}
         </div>
     );
 }

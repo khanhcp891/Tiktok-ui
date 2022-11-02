@@ -12,7 +12,7 @@ import AccountPreview from './AccountPreview/AccountPreview';
 const cx = classNames.bind(styles);
 
 function AccountItem({ data }) {
-    console.log('data in accountItem:', data);
+    // console.log('data in accountItem:', data);
     const renderPreview = (attrs) => {
         return (
             <div className={cx('preview')} tabIndex="-1" {...attrs}>

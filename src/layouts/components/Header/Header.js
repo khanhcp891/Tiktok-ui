@@ -57,7 +57,7 @@ const MENU_ITEM = [
 ];
 
 function Header() {
-    const currentUser = true;
+    let currentUser = true;
 
     const userMenu = [
         {
@@ -121,7 +121,7 @@ function Header() {
                     ) : (
                         <>
                             <Button text>Upload</Button>
-                            <Button primary onClick={() => alert('Clicked!')}>
+                            <Button primary to={config.routers.Login} onClick={() => alert('Clicked!')}>
                                 Log in
                             </Button>
                         </>
@@ -131,9 +131,9 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src=""
-                                alt="nguyen van"
-                                fallback="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqX6gWw8WVMFZ_IpImrQascotNhk0gKF9cYg&usqp=CAU"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqX6gWw8WVMFZ_IpImrQascotNhk0gKF9cYg&usqp=CAU"
+                                alt="nguyen van" //images
+                                fallback={images.noImage}
                             />
                         ) : (
                             <button className={cx('more-btn')}>

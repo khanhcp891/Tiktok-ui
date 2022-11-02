@@ -6,13 +6,13 @@ import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
     const classes = cx('follow-btn');
     return (
         <div className={cx('account-item')}>
             <div className={cx('info')}>
                 <h4 className={cx('username')}>
-                    <strong>nguyen van a</strong>
+                    <strong>{data.nickname}</strong>
                     {<FontAwesomeIcon className={cx('checkIcon')} icon={faCheckCircle} />}
                 </h4>
                 <p className={cx('name')}>nguyen van</p>
