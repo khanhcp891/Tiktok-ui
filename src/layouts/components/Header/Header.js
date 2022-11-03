@@ -57,7 +57,11 @@ const MENU_ITEM = [
 ];
 
 function Header() {
-    let currentUser = true;
+    // let currentUser = true;
+
+    let currentUser = localStorage.getItem('currentUser');
+
+    const dataUser = JSON.parse(localStorage.getItem('dataUser'));
 
     const userMenu = [
         {
@@ -131,7 +135,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqX6gWw8WVMFZ_IpImrQascotNhk0gKF9cYg&usqp=CAU"
+                                src={dataUser.avatar}
                                 alt="nguyen van" //images
                                 fallback={images.noImage}
                             />

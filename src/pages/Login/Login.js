@@ -12,55 +12,36 @@ const cx = classNames.bind(styles);
 function Login() {
     const [searchValueUserName, setSearchValueUserName] = useState('');
     const [searchValuePassword, setSearchValuePassword] = useState('');
-    const [resultValueUserName, setResultValueUserName] = useState(false);
-    const [resultValuePassword, setResultValuePassword] = useState(false);
     const [sucess, setSucess] = useState(false);
+    const [user, setUser] = useState({});
 
-    const user = useRef();
+    const hookRef = useRef();
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        user.current.focus();
-        if (resultValueUserName && resultValuePassword) {
-            setSucess(true);
-        }
-        // console.log('login: ', loginService.getUserName('sondtf8'));
-    }, [resultValueUserName, resultValuePassword]);
+        hookRef.current.focus();
+        // if (resultValueUserName && resultValuePassword) {
+        //     setSucess(true);
+        // }
+    }, []);
 
-    // useEffect(() => {
-    //     loginService.getPassword({ searchValuePassword }).then((data) => {
-    //         setResultValuePassword(data);
-    //     });
-    // });
-    // console.log('username', searchValueUserName);
-    // console.log('password', searchValuePassword);
     const handleSubmit = (e) => {
         e.preventDefault();
 
         try {
-            loginService.checkUserName(searchValueUserName).then((data) => {
-                // console.log('first: ', data);
-                setResultValueUserName(data);
-                console.log('first: ', resultValueUserName);
-            });
-
-            loginService.checkPassword(searchValuePassword).then((data) => {
-                // console.log('second: ', data);
-                setResultValuePassword(data);
-                console.log('second: ', resultValuePassword);
+            loginService.checkAccount(searchValueUserName, searchValuePassword).then((data) => {
+                setSucess(data);
             });
         } catch (error) {
             console.log('erro in submit:', error);
         }
-        // console.log('second: ', resultValueUserName);
-        // console.log('first: ', resultValuePassword);
-        // setSucess(true);
 
+        loginService.dataUser(searchValueUserName, searchValuePassword).then((user) => {
+            setUser(user);
+        });
         setSearchValueUserName('');
         setSearchValuePassword('');
-        // setResultValueUserName(true);
-        // setResultValuePassword(true);
     };
 
     const handleChangeUserName = (e) => {
@@ -77,6 +58,9 @@ function Login() {
         }
     };
 
+    // console.log('datauser in login:', typeof user);
+    localStorage.setItem('currentUser', sucess);
+    localStorage.setItem('dataUser', JSON.stringify(user));
     return (
         <>
             {sucess ? (
@@ -88,7 +72,7 @@ function Login() {
                         <form onSubmit={handleSubmit}>
                             <div className={cx('Input')}>
                                 <input
-                                    ref={user}
+                                    ref={hookRef}
                                     type="text"
                                     value={searchValueUserName}
                                     name="username"

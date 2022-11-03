@@ -8,6 +8,7 @@ import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import Live from '~/pages/Live';
 import Login from '~/pages/Login';
+import Logout from '~/pages/Logout';
 
 const publicRouter = [
     { path: config.routers.Home, component: Home },
@@ -15,7 +16,7 @@ const publicRouter = [
     { path: config.routers.Profile, component: Profile },
     { path: config.routers.Live, component: Live },
     { path: config.routers.Login, component: Login, layout: null },
-    { path: config.routers.Logout, component: Live },
+    { path: config.routers.Logout, component: Logout },
     { path: config.routers.Upload, component: Upload, layout: HeaderOnly },
     { path: config.routers.Search, component: Search, layout: null },
 ];

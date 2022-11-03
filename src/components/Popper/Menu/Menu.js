@@ -17,6 +17,7 @@ function Menu({ children, hideOnClick = true, items = [], onChange = defaultFn }
 
     const renderItems = () => {
         return current.data.map((item, index) => {
+            // console.log('first: ', item);
             const isParent = !!item.children;
             return (
                 <MenuItems
