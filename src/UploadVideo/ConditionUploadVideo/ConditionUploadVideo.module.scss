@@ -1,0 +1,87 @@
+.wrapper {
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.logo {
+    margin-top: 55px;
+    width: 40px;
+    height: 29px;
+}
+
+.remind {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.remind-sp {
+    box-sizing: border-box;
+    margin-block: 0px;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 1);
+}
+
+.remind-second {
+    margin-top: 4px;
+    margin-bottom: 24px;
+}
+
+.remind-second-sp {
+    box-sizing: border-box;
+    margin-block: 0px;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.75);
+}
+.condition {
+    list-style: none;
+}
+
+.condition-second {
+    text-align: center;
+}
+
+.condition-second-sp {
+    box-sizing: border-box;
+    margin-block: 0px;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.select-file {
+    width: 100%;
+    margin-top: 32px;
+}
+
+.select-file-btn {
+    box-sizing: border-box;
+    appearance: none;
+    min-width: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    background-clip: padding-box;
+    width: 100%;
+    font-size: 16px;
+    height: 36px;
+    color: rgba(255, 255, 255, 1);
+    background-color: var(--primary);
+}

@@ -5,8 +5,7 @@ function Logout() {
     return (
         <button
             onClick={() => {
-                localStorage.removeItem('currentUser');
-                localStorage.removeItem('dataUser');
+                localStorage.clear();
                 navigate('/');
             }}
         >

@@ -8,6 +8,24 @@ export const getSuggested = async ({ page, perPage }) => {
                 per_page: perPage,
             },
         });
+        // console.log('res: ', res.data);
         return res.data;
-    } catch (error) {}
+    } catch (error) {
+        console.log(error);
+    }
+
+    // return httpRequest
+    //     .get('users/suggested', {
+    //         params: {
+    //             page,
+    //             per_page: perPage,
+    //         },
+    //     })
+    //     .then((res) => {
+    //         // console.log('hit me');
+    //         return Promise.resolve(res.data);
+    //     })
+    //     .catch((error) => {
+    //         return Promise.reject(error);
+    //     });
 };

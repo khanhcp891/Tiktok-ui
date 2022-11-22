@@ -7,6 +7,7 @@ const routers = {
     Live: '/live',
     Login: '/login',
     Logout: '/Logout',
+    Register: '/register',
 };
 
 export default routers;

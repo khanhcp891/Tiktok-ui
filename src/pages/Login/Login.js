@@ -5,7 +5,10 @@ import styles from './Login.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
-import * as loginService from '~/service/loginService';
+// import * as loginService from '~/service/loginService';
+import { useDispatch, useSelector } from 'react-redux';
+// import { loginByUser } from '~/redux/authSlice';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -13,36 +16,33 @@ function Login() {
     const [searchValueUserName, setSearchValueUserName] = useState('');
     const [searchValuePassword, setSearchValuePassword] = useState('');
     const [sucess, setSucess] = useState(false);
-    const [user, setUser] = useState({});
+    // const [user, setUser] = useState({});
 
-    const hookRef = useRef();
+    const hh = useRef();
 
+    const dispath = useDispatch();
     const navigate = useNavigate();
 
+    const status = useSelector((state) => state.user.status);
+
     useEffect(() => {
-        hookRef.current.focus();
-        // if (resultValueUserName && resultValuePassword) {
-        //     setSucess(true);
-        // }
+        if (status) {
+            setSucess(status);
+        }
+    }, [status]);
+
+    useEffect(() => {
+        hh.current.focus();
     }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        try {
-            loginService.checkAccount(searchValueUserName, searchValuePassword).then((data) => {
-                setSucess(data);
-            });
-        } catch (error) {
-            console.log('erro in submit:', error);
-        }
-
-        loginService.dataUser(searchValueUserName, searchValuePassword).then((user) => {
-            setUser(user);
-        });
+        // dispath(loginByUser({ searchValueUserName, searchValuePassword }));
         setSearchValueUserName('');
         setSearchValuePassword('');
     };
+
+    const handleOnClick = () => {};
 
     const handleChangeUserName = (e) => {
         const searchValueUserName = e.target.value;
@@ -60,19 +60,21 @@ function Login() {
 
     // console.log('datauser in login:', typeof user);
     localStorage.setItem('currentUser', sucess);
-    localStorage.setItem('dataUser', JSON.stringify(user));
+    // localStorage.setItem('dataUser', JSON.stringify(user));
+
     return (
         <>
-            {sucess ? (
-                navigate('/home')
+            {sucess === true ? (
+                navigate('/')
             ) : (
                 <section className={cx('wrapper')}>
                     <div className={cx('content')}>
                         <img className={cx('logo')} src={images.logo} alt="logo" />
+                        <p className={cx('title')}>Login</p>
                         <form onSubmit={handleSubmit}>
                             <div className={cx('Input')}>
                                 <input
-                                    ref={hookRef}
+                                    ref={hh}
                                     type="text"
                                     value={searchValueUserName}
                                     name="username"
@@ -85,8 +87,7 @@ function Login() {
                             <br />
                             <div className={cx('Input')}>
                                 <input
-                                    // className={cx('input-ip')}
-                                    // ref={user}
+                                    // ref={hh}
                                     type="password"
                                     value={searchValuePassword}
                                     name="password"
@@ -99,7 +100,7 @@ function Login() {
                             <button className={cx('sign-in-btn')}>Sign In</button>
                         </form>
                         <div className={cx('social-signin')}>
-                            <button className={cx('fb')}>
+                            <button className={cx('fb')} onClick={handleOnClick}>
                                 <FontAwesomeIcon className={cx('icon')} icon={faUser} />
                             </button>
                             <button className={cx('tw')}>
@@ -108,6 +109,9 @@ function Login() {
                         </div>
                         <Link className={cx('forgot-pass')} to="">
                             Lost your password ?
+                        </Link>
+                        <Link className={cx('register-btn')} to={config.routers.Register}>
+                            Register
                         </Link>
                     </div>
                 </section>

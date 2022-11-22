@@ -9,6 +9,7 @@ import Search from '~/pages/Search';
 import Live from '~/pages/Live';
 import Login from '~/pages/Login';
 import Logout from '~/pages/Logout';
+import Register from '~/pages/Register';
 
 const publicRouter = [
     { path: config.routers.Home, component: Home },
@@ -17,6 +18,7 @@ const publicRouter = [
     { path: config.routers.Live, component: Live },
     { path: config.routers.Login, component: Login, layout: null },
     { path: config.routers.Logout, component: Logout },
+    { path: config.routers.Register, component: Register, layout: null },
     { path: config.routers.Upload, component: Upload, layout: HeaderOnly },
     { path: config.routers.Search, component: Search, layout: null },
 ];

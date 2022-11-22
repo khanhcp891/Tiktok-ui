@@ -33,9 +33,7 @@ function AccountItem({ data }) {
                             <strong>{data.first_name}</strong>
                             {data.tick && <FontAwesomeIcon className={cx('checkIcon')} icon={faCheckCircle} />}
                         </h4>
-                        <p className={cx('name')}>
-                            `${data.last_name} ${data.first_name}`
-                        </p>
+                        <p className={cx('name')}>{data.last_name + ' ' + data.first_name}</p>
                     </div>
                 </div>
             </Tippy>

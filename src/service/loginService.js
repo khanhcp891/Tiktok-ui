@@ -1,5 +1,15 @@
 import userApi from '~/api/accountApi';
 
+export const dataAll = async () => {
+    try {
+        const data = await userApi.getAll();
+
+        return data;
+    } catch (error) {
+        console.log('login user', error);
+    }
+};
+
 export const checkAccount = async (u, p) => {
     try {
         const data = await userApi.getAll();

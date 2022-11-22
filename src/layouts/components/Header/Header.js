@@ -57,11 +57,13 @@ const MENU_ITEM = [
 ];
 
 function Header() {
-    // let currentUser = true;
+    let currentUser = true;
 
-    let currentUser = localStorage.getItem('currentUser');
+    // let currentUser = localStorage.getItem('currentUser');
 
-    const dataUser = JSON.parse(localStorage.getItem('dataUser'));
+    const dataUser = JSON.parse(localStorage.getItem('user'));
+    // console.log('currentUser: ', currentUser);
+    // console.log('dataUser: ', dataUser);
 
     const userMenu = [
         {
@@ -111,9 +113,10 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy content="Upload video" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <Link className={cx('action-btn')} to={config.routers.Upload}>
                                     <FontAwesomeIcon icon={faCloudUpload} />
-                                </button>
+                                    {/* <Link to={config.routers.Upload}></Link> */}
+                                </Link>
                             </Tippy>
                             <button className={cx('action-btn')}>
                                 <MessIcons />
@@ -124,7 +127,9 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text>Upload</Button>
+                            <Button text to={config.routers.Login}>
+                                Upload
+                            </Button>
                             <Button primary to={config.routers.Login} onClick={() => alert('Clicked!')}>
                                 Log in
                             </Button>
@@ -135,7 +140,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src={dataUser.avatar}
+                                src="{dataUser.avatar}"
                                 alt="nguyen van" //images
                                 fallback={images.noImage}
                             />

@@ -1,0 +1,68 @@
+.wrapper {
+    margin: 100px;
+    width: 1100px;
+    height: 930px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    // background-color: rgb(248, 248, 248);
+    background-color: red;
+}
+
+.container {
+    width: 100%;
+    height: 99%;
+    box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    padding: 24px 56px;
+}
+
+.title {
+    width: 988px;
+    height: 36px;
+    box-sizing: border-box;
+    margin-block: 0px;
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: rgba(22, 24, 35, 1);
+    display: block;
+}
+
+.title-remind {
+    width: 988px;
+    height: 27px;
+    margin-top: 2px;
+}
+
+.remind {
+    box-sizing: border-box;
+    margin-block: 0px;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.action {
+    display: flex;
+    width: 988px;
+    height: 631px;
+    margin-top: 24px;
+    margin-bottom: 130px;
+    background-color: greenyellow;
+}
+
+.upload-video {
+    width: 260px;
+    height: 607px;
+    margin-top: 24px;
+    background-color: grey;
+}
+
+.note-video {
+    margin-left: 24px;
+    flex: 1;
+    min-width: 0px;
+    background-color: pink;
+}

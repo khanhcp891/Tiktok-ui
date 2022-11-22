@@ -5,17 +5,7 @@ import { DefaultLayout } from '~/layouts';
 import Error404 from './404';
 
 function App() {
-    // const renderLayout = (ChildrenComponent) => {
-    //     return <DefaultLayout Comp={ChildrenComponent} /   >;
-    // };
-    // const renderPage = (Component) => {
-    //     return <Component />;
-    // };
-
     return (
-        // <DefaultLayout>
-        //     <h1>adasdasdasda</h1>
-        // </DefaultLayout>
         <div className="App">
             <Router>
                 <Routes>
