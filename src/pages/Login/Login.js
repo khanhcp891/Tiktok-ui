@@ -7,7 +7,7 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 // import * as loginService from '~/service/loginService';
 import { useDispatch, useSelector } from 'react-redux';
-// import { loginByUser } from '~/redux/authSlice';
+import { loginByUser } from '~/redux/authSlice';
 import config from '~/config';
 
 const cx = classNames.bind(styles);
@@ -37,7 +37,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // dispath(loginByUser({ searchValueUserName, searchValuePassword }));
+        dispath(loginByUser({ searchValueUserName, searchValuePassword }));
         setSearchValueUserName('');
         setSearchValuePassword('');
     };

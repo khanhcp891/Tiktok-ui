@@ -48,7 +48,7 @@ export const suggestSlice = createSlice({
     initialState,
     reducers: {
         suggestUser: (state, action) => {
-            console.log('reducer');
+            // console.log('reducer');
             state.user = localStorage.getItem('user');
         },
         // setUser: (state, action) => {
@@ -62,13 +62,13 @@ export const suggestSlice = createSlice({
             state.loading = false;
         });
         builder.addCase(fetchSuggestUser.fulfilled, (state, action) => {
-            console.log('action in fulfill: ', action.payload);
+            // console.log('action in fulfill: ', action.payload);
             state.loading = true;
             state.user = action.payload;
             localStorage.setItem('user', JSON.stringify(action.payload));
         });
         builder.addCase(fetchSuggestUser.rejected, (state) => {
-            console.log('reject');
+            // console.log('reject');
             state.loading = true;
         });
     },

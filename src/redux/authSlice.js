@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { dataAll } from '~/service/loginService';
+// import { dataAll } from '~/service/loginService';
 
 const initialState = {
     status: false,
@@ -24,18 +24,24 @@ const initialState = {
 //     return res;
 // });
 
-// export const loginByUser = createAsyncThunk('loginByUser', async (body) => {
-//     // console.log('body: ', body);
-//     const res = await fetch('/api/user/login', {
-//         method: 'POST',
-//         body: JSON.stringify(body),
-//         // console.log("body 2: " body)
-//     });
-//     // console.log('res: ', res);
-//     const data = await res.json();
-//     // console.log('1. login: ', data);
-//     return data;
-// });
+export const loginByUser = createAsyncThunk('loginByUser', async (body) => {
+    console.log('body: ', JSON.stringify(body.searchValuePassword));
+    const res = await fetch('http://localhost:5000/login/', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // console.log("body 2: " body)
+    });
+    // console.log('res: ', res.json());
+    const data = await res.json().then((data) => {
+        console.log('res data', data.result[0]);
+        return data.result[0];
+    });
+    // console.log('1. login: ', data);
+    return data;
+});
 
 // export const register = createAsyncThunk('register', async (body) => {
 //     // console.log('body1: ', body);
@@ -60,14 +66,15 @@ const authSlice = createSlice({
     name: 'user/login',
     initialState,
     reducers: {
-        // addUser: (state, action) => {
-        //     state.user = localStorage.getItem('user');
-        // },
-        // logout: (state, action) => {
-        //     localStorage.clear();
-        // },
+        addUser: (state, action) => {
+            state.user = localStorage.getItem('user');
+        },
+        logout: (state, action) => {
+            state = initialState;
+            localStorage.clear();
+        },
     },
-    extraReducers: (builder) => {
+    extraReducers: {
         // [fetchUser.pending]: (state, action) => {
         //     state.loading = true;
         // },
@@ -89,27 +96,27 @@ const authSlice = createSlice({
         //     state.loading = true;
         // },
         // /*************************LOGIN******************************** */
-        // [loginByUser.pending]: (state, action) => {
-        //     state.loading = true;
-        // },
-        // [loginByUser.fulfilled]: (state, action) => {
-        //     // console.log('action: ', action.payload);
-        //     state.loading = false;
-        //     if (false) {
-        //         state.error = '';
-        //     } else {
-        //         // console.log('state', action.payload);
-        //         state.status = action.payload.action;
-        //         state.user = action.payload;
-        //         // console.log('current:', action.payload.action);
-        //         // localStorage.setItem('currentUser', true);
-        //         localStorage.setItem('user', JSON.stringify(action.payload));
-        //     }
-        //     // console.log( '3');
-        // },
-        // [loginByUser.rejected]: (state, action) => {
-        //     state.loading = true;
-        // },
+        [loginByUser.pending]: (state, action) => {
+            state.loading = true;
+        },
+        [loginByUser.fulfilled]: (state, action) => {
+            // console.log('action: ', action.payload);
+            state.loading = false;
+            if (false) {
+                state.error = '';
+            } else {
+                console.log('state', action.payload);
+                state.status = action.payload.action;
+                state.user = action.payload;
+                // console.log('current:', action.payload.action);
+                // localStorage.setItem('currentUser', true);
+                localStorage.setItem('user', JSON.stringify(action.payload));
+            }
+            // console.log( '3');
+        },
+        [loginByUser.rejected]: (state, action) => {
+            state.loading = true;
+        },
     },
 });
 

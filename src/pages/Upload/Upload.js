@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import NoteVideo from '~/NoteVideo';
+import NoteVideo from '~/UploadVideo/NoteVideo';
 import UploadVideo from '~/UploadVideo';
 import styles from './Upload.module.scss';
 

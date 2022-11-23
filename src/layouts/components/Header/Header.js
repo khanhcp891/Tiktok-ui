@@ -57,7 +57,7 @@ const MENU_ITEM = [
 ];
 
 function Header() {
-    let currentUser = true;
+    let currentUser = false;
 
     // let currentUser = localStorage.getItem('currentUser');
 
