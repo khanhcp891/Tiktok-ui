@@ -8,6 +8,7 @@ const routers = {
     Login: '/login',
     Logout: '/Logout',
     Register: '/register',
+    ViewProfile: '/user',
 };
 
 export default routers;

@@ -25,7 +25,7 @@ const initialState = {
 // });
 
 export const loginByUser = createAsyncThunk('loginByUser', async (body) => {
-    console.log('body: ', JSON.stringify(body.searchValuePassword));
+    // console.log('body: ', JSON.stringify(body.searchValuePassword));
     const res = await fetch('http://localhost:5000/login/', {
         method: 'POST',
         body: JSON.stringify(body),
@@ -36,24 +36,27 @@ export const loginByUser = createAsyncThunk('loginByUser', async (body) => {
     });
     // console.log('res: ', res.json());
     const data = await res.json().then((data) => {
-        console.log('res data', data.result[0]);
+        // console.log('res data', data.result[0]);
         return data.result[0];
     });
-    // console.log('1. login: ', data);
+    console.log('1. login: ', data);
     return data;
 });
 
-// export const register = createAsyncThunk('register', async (body) => {
-//     // console.log('body1: ', body);
-//     const res = await fetch('api/user', {
-//         method: 'POST',
-//         body: JSON.stringify(body),
-//         // console.log("body 2: " body)
-//     });
-//     const data = await res.json();
-//     console.log('1. register: ', data);
-//     return data.users;
-// });
+export const register = createAsyncThunk('register', async (body) => {
+    console.log('body1: ', body);
+    const res = await fetch('http://localhost:5000/register', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // console.log("body 2: " body)
+    });
+    const data = await res.json();
+    console.log('1. register: ', data);
+    return data.users;
+});
 
 // export const fetchUser = createAsyncThunk('fetchUser', async (body) => {
 //     const res = await fetch('api/user');
@@ -69,9 +72,13 @@ const authSlice = createSlice({
         addUser: (state, action) => {
             state.user = localStorage.getItem('user');
         },
-        logout: (state, action) => {
-            state = initialState;
-            localStorage.clear();
+        logout: (state) => {
+            state.user = undefined;
+            state.status = false;
+            console.log('logout', state.user);
+            localStorage.removeItem('user');
+            localStorage.removeItem('currentUser');
+            // localStorage.clear();
         },
     },
     extraReducers: {
@@ -83,18 +90,18 @@ const authSlice = createSlice({
         //     state.user = action.payload;
         // },
         // /*******************REGISTER********************** */
-        // [register.pending]: (state, action) => {
-        //     state.loading = true;
-        // },
-        // [register.fulfilled]: (state, action) => {
-        //     console.log('3. action: ', action.payload);
-        //     state.loading = false;
-        //     state.user.push(action.payload);
-        //     state.registerStatus = action.payload.action;
-        // },
-        // [register.rejected]: (state, action) => {
-        //     state.loading = true;
-        // },
+        [register.pending]: (state, action) => {
+            state.loading = true;
+        },
+        [register.fulfilled]: (state, action) => {
+            console.log('3. action: ', action.payload);
+            state.loading = false;
+            state.user.push(action.payload);
+            state.registerStatus = action.payload.action;
+        },
+        [register.rejected]: (state, action) => {
+            state.loading = true;
+        },
         // /*************************LOGIN******************************** */
         [loginByUser.pending]: (state, action) => {
             state.loading = true;
@@ -105,12 +112,27 @@ const authSlice = createSlice({
             if (false) {
                 state.error = '';
             } else {
-                console.log('state', action.payload);
-                state.status = action.payload.action;
-                state.user = action.payload;
+                if (!action.payload) {
+                    state.user = action.payload;
+                    state.status = action.payload.action;
+                    console.log('state.user', state.user);
+                    console.log('state.status', action.payload.Action);
+                    localStorage.setItem('user', JSON.stringify(action.payload));
+                    // localStorage.setItem('currentUser', false);
+                } else {
+                    state.status = action.payload.Action;
+                    state.user = action.payload;
+                    // console.log('state.user', state.user);
+                    // console.log('state.status', state.status);
+                    // console.log('state.user', state.user);
+                    localStorage.setItem('user', JSON.stringify(action.payload));
+                    // localStorage.setItem('currentUser', true);
+                }
+                // console.log('state', action.payload);
+                // state.status = action.payload.action;
+                // state.user = action.payload;
                 // console.log('current:', action.payload.action);
                 // localStorage.setItem('currentUser', true);
-                localStorage.setItem('user', JSON.stringify(action.payload));
             }
             // console.log( '3');
         },

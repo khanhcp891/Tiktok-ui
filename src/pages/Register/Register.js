@@ -6,18 +6,25 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { register, fetchUser } from '~/redux/authSlice';
+import { register, fetchUser } from '~/redux/authSlice';
 // import { setupServer } from '~/fakeApis';
 import config from '~/config';
 // setupServer();
 
 const cx = classNames.bind(styles);
+const uuid = () => crypto.randomUUID();
 
 function Register() {
-    const [username, setUserName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [checkSucess, setCheckSucess] = useState(false);
+    const firstName = 'pham';
+    const lastName = 'khanh';
+    const nickName = 'khanhpdhe153664';
+    const address = 'TPHCM';
+    const phone = '888';
+    const avatar = null;
     const action = true;
 
     const hh = useRef();
@@ -44,13 +51,13 @@ function Register() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!(password === confirmPassword)) {
-            setUserName('');
+            setEmail('');
             setPassword('');
             setConfirmPassword('');
         } else {
-            // dispatch(register({ username, password, action }));
+            dispatch(register({ uuid, firstName, lastName, nickName, password, address, phone, email, avatar }));
             // dispatch(fetchUser());
-            setUserName('');
+            setEmail('');
             setPassword('');
             setConfirmPassword('');
         }
@@ -59,7 +66,7 @@ function Register() {
     const handleChangeName = (e) => {
         const name = e.target.value;
         if (!name.startsWith(' ')) {
-            setUserName(name);
+            setEmail(name);
         }
     };
 
@@ -89,7 +96,7 @@ function Register() {
                                 <input
                                     ref={hh}
                                     type="text"
-                                    value={username}
+                                    value={email}
                                     name="username"
                                     placeholder="username"
                                     required

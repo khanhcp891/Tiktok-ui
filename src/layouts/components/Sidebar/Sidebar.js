@@ -36,7 +36,7 @@ function Sidebar() {
     // dispatch(test());
     useEffect(() => {
         dispatch(fetchSuggestUser());
-        const user = localStorage.getItem('user');
+        const user = localStorage.getItem('userSuggest');
         setSuggestedUser(JSON.parse(user));
     }, []);
     // useEffect(() => {

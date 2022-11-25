@@ -1,0 +1,29 @@
+.wrapper {
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 0 auto;
+    padding: 32px 24px;
+    box-sizing: content-box;
+    min-height: 99vh;
+    background-color: antiquewhite;
+}
+
+.content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+// .info {
+//     width: 32px;
+//     height: 32px;
+//     background-color: red;
+// }
+
+// .list-index {
+//     width: 32px;
+//     height: 32px;
+//     background-color: aqua;
+// }

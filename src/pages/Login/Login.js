@@ -17,17 +17,21 @@ function Login() {
     const [searchValuePassword, setSearchValuePassword] = useState('');
     const [sucess, setSucess] = useState(false);
     // const [user, setUser] = useState({});
-
+    console.log('1');
     const hh = useRef();
 
     const dispath = useDispatch();
     const navigate = useNavigate();
 
     const status = useSelector((state) => state.user.status);
+    const test = useSelector((state) => console.log('state.user.status', state));
+    // console.log('status:', status);
 
     useEffect(() => {
         if (status) {
+            console.log('2');
             setSucess(status);
+            // console.log('sucess 1:', sucess);
         }
     }, [status]);
 
@@ -37,7 +41,9 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('3');
         dispath(loginByUser({ searchValueUserName, searchValuePassword }));
+        localStorage.setItem('currentUser', sucess);
         setSearchValueUserName('');
         setSearchValuePassword('');
     };
@@ -58,13 +64,14 @@ function Login() {
         }
     };
 
-    // console.log('datauser in login:', typeof user);
-    localStorage.setItem('currentUser', sucess);
+    console.log('4');
+    // console.log('sucess:', sucess);
+    // console.log('local: ', localStorage.getItem('currentUser'));
     // localStorage.setItem('dataUser', JSON.stringify(user));
 
     return (
         <>
-            {sucess === true ? (
+            {sucess ? (
                 navigate('/')
             ) : (
                 <section className={cx('wrapper')}>

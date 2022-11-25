@@ -65,7 +65,7 @@ export const suggestSlice = createSlice({
             // console.log('action in fulfill: ', action.payload);
             state.loading = true;
             state.user = action.payload;
-            localStorage.setItem('user', JSON.stringify(action.payload));
+            localStorage.setItem('userSuggest', JSON.stringify(action.payload));
         });
         builder.addCase(fetchSuggestUser.rejected, (state) => {
             // console.log('reject');
