@@ -99,10 +99,10 @@
 }
 
 .save {
-    border: none;
-    color: rgba(22, 24, 35, 0.34);
-    background-color: rgba(22, 24, 35, 0.06);
-    pointer-events: none;
+    // border: none;
+    // color: rgba(22, 24, 35, 0.34);
+    // background-color: rgba(22, 24, 35, 0.06);
+    // pointer-events: none;
 
     // border-radius: 4px;
     // border: none;
@@ -126,4 +126,28 @@
     // width: 96px;
     // height: 36px;
     // margin-left: 16px;
+
+    border-radius: 4px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(254, 44, 85);
+    min-height: 28px;
+    font-family: ProximaNova, PingFangSC, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    line-height: 24px;
+    min-width: 0px;
+    padding: 7px 16px;
+    width: 96px;
+    height: 36px;
+    margin-left: 16px;
 }

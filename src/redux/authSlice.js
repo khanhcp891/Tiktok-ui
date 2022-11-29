@@ -4,6 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
     status: false,
     registerStatus: false,
+    updateStatus: false,
     user: [],
     loading: false,
     error: '',
@@ -44,7 +45,7 @@ export const loginByUser = createAsyncThunk('loginByUser', async (body) => {
 });
 
 export const register = createAsyncThunk('register', async (body) => {
-    console.log('body1: ', body);
+    // console.log('body1: ', body);
     const res = await fetch('http://localhost:5000/register', {
         method: 'POST',
         body: JSON.stringify(body),
@@ -55,6 +56,27 @@ export const register = createAsyncThunk('register', async (body) => {
     });
     let data = await res.json();
     // console.log('register', data);
+    if (data.result === null) {
+        data = true;
+    } else {
+        data = false;
+    }
+    // console.log('1. register: ', data);
+    return data;
+});
+
+export const editProfile = createAsyncThunk('editProfile', async (body) => {
+    // console.log('body1: ', body.nickName + ' ' + body.firstName);
+    const res = await fetch('http://localhost:5000/editProfile', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // console.log("body 2: " body)
+    });
+    let data = await res.json();
+    // console.log('editProfile', data);
     if (data.result === null) {
         data = true;
     } else {
@@ -85,6 +107,9 @@ const authSlice = createSlice({
             localStorage.removeItem('user');
             localStorage.removeItem('currentUser');
             // localStorage.clear();
+        },
+        updateProfile: (state) => {
+            state.updateStatus = false;
         },
     },
     extraReducers: {
@@ -145,8 +170,21 @@ const authSlice = createSlice({
         [loginByUser.rejected]: (state, action) => {
             state.loading = true;
         },
+        /*************************EDIT PROFILE******************************** */
+        [editProfile.pending]: (state, action) => {
+            state.loading = true;
+        },
+        [editProfile.fulfilled]: (state, action) => {
+            state.loading = false;
+            // state.user.push(action.payload);
+            state.updateStatus = action.payload;
+            console.log('state.updateStatus ', state.updateStatus);
+        },
+        [editProfile.rejected]: (state, action) => {
+            state.loading = true;
+        },
     },
 });
 
-export const { addUser, logout } = authSlice.actions;
+export const { addUser, logout, updateProfile } = authSlice.actions;
 export default authSlice.reducer;

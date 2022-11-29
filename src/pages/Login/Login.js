@@ -24,7 +24,7 @@ function Login() {
     const navigate = useNavigate();
 
     const status = useSelector((state) => state.user.status);
-    const test = useSelector((state) => console.log('state.user.status', state));
+    // const test = useSelector((state) => console.log('state.user.status', state));
     // console.log('status:', status);
 
     useEffect(() => {

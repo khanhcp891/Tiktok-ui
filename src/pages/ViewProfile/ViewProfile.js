@@ -11,7 +11,7 @@ function ViewProfile() {
 
     const user = localStorage.getItem('user');
     const infoUser = JSON.parse(user);
-    console.log('user', infoUser);
+    // console.log('user', infoUser);
 
     return (
         <div className={cx('wrapper')}>

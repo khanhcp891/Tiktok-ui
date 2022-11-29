@@ -54,7 +54,7 @@ function UploadVideo() {
 
                 <form>
                     <div className={cx('content')} onClick={handleClickInput}>
-                        <ConditionUploadVideo inputRef={inputRef} />
+                        <ConditionUploadVideo />
                     </div>
                 </form>
                 <h2>upload {progress} % </h2>

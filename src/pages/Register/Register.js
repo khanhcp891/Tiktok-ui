@@ -6,7 +6,7 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register, fetchUser } from '~/redux/authSlice';
+import { register } from '~/redux/authSlice';
 import { v4 as uuid } from 'uuid';
 // import { setupServer } from '~/fakeApis';
 import config from '~/config';
@@ -44,7 +44,7 @@ function Register() {
     useEffect(() => {
         if (status) {
             setCheckSucess(status);
-            localStorage.clear();
+            // localStorage.clear();
             navigate('/login');
         }
     }, [status]);
