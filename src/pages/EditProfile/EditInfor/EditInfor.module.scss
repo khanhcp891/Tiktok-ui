@@ -1,0 +1,169 @@
+.edit-profile {
+    width: 700px;
+    padding: 8px 24px 0px;
+}
+
+.edit {
+    padding: 16px 0px;
+    display: flex;
+    border-bottom: 0.5px solid rgba(22, 24, 35, 0.12);
+}
+
+.edit-title {
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 16px;
+    width: 120px;
+    margin-right: 24px;
+}
+
+.edit-avatar-action {
+    position: relative;
+    height: 96px;
+}
+
+.edit-current-avatar {
+    width: 96px;
+    height: 96px;
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-left: 128px;
+}
+
+.current-avatar {
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-feature-settings: 'tnum';
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 32px;
+    border-radius: 50%;
+    background-color: rgba(136, 136, 136, 0.5);
+    border-color: rgba(22, 24, 35, 0.12);
+    border-width: 0.5px;
+    cursor: pointer;
+}
+
+.image {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.edit-current-avatar-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(208, 208, 211);
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0px;
+    margin-left: 192px;
+}
+
+.edit-nickname {
+    position: relative;
+}
+
+.edit-nickname-input {
+    width: 360px;
+    height: 38px;
+    border-radius: 4px;
+    background: rgba(22, 24, 35, 0.06);
+    caret-color: rgb(254, 44, 85);
+    font-size: 16px;
+    color: rgb(22, 24, 35);
+    line-height: 24px;
+    outline: none;
+    border: none;
+    padding: 7px 12px;
+    box-sizing: border-box;
+}
+
+.address-account {
+    font-size: 12px;
+    color: rgba(22, 24, 35, 0.75);
+    line-height: 18px;
+    margin-top: 16px;
+    max-width: 460px;
+    overflow: hidden;
+}
+
+.note {
+    font-size: 12px;
+    color: rgba(22, 24, 35, 0.75);
+    line-height: 18px;
+    max-width: 460px;
+    overflow: hidden;
+    margin-top: 8px;
+    width: 360px;
+}
+
+.edit-firstname {
+    position: relative;
+}
+
+.edit-firstname-input {
+    width: 360px;
+    height: 38px;
+    border-radius: 4px;
+    background: rgba(22, 24, 35, 0.06);
+    caret-color: rgb(254, 44, 85);
+    font-size: 16px;
+    color: rgb(22, 24, 35);
+    line-height: 24px;
+    outline: none;
+    border: none;
+    padding: 7px 12px;
+    box-sizing: border-box;
+}
+
+.edit-story {
+    padding: 16px 0px;
+    display: flex;
+}
+
+.edit-story-action {
+    position: relative;
+
+    textarea {
+        width: 360px;
+        border-radius: 4px;
+        background: rgba(22, 24, 35, 0.06);
+        caret-color: rgb(254, 44, 85);
+        font-size: 16px;
+        color: rgb(22, 24, 35);
+        line-height: 24px;
+        outline: none;
+        border: none;
+        box-sizing: border-box;
+        height: 100px;
+        padding: 12px;
+        resize: none;
+    }
+}
+
+.note-story {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 12px;
+    line-height: 18px;
+}

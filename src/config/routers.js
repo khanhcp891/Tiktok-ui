@@ -9,6 +9,7 @@ const routers = {
     Logout: '/Logout',
     Register: '/register',
     ViewProfile: '/user',
+    EditProfile: '/editprofile',
 };
 
 export default routers;

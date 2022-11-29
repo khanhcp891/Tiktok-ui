@@ -10,6 +10,7 @@ import Login from '~/pages/Login';
 import Logout from '~/pages/Logout';
 import Register from '~/pages/Register';
 import ViewProfile from '~/pages/ViewProfile';
+import EditProfile from '~/pages/EditProfile';
 
 const publicRouter = [
     { path: config.routers.Home, component: Home },
@@ -21,6 +22,7 @@ const publicRouter = [
     { path: config.routers.Upload, component: Upload, layout: HeaderOnly },
     { path: config.routers.Search, component: Search, layout: null },
     { path: config.routers.ViewProfile, component: ViewProfile },
+    { path: config.routers.EditProfile, component: EditProfile, layout: null },
 ];
 
 const privateRouter = [];

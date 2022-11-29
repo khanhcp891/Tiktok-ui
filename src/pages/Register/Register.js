@@ -7,12 +7,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { register, fetchUser } from '~/redux/authSlice';
+import { v4 as uuid } from 'uuid';
 // import { setupServer } from '~/fakeApis';
 import config from '~/config';
 // setupServer();
 
 const cx = classNames.bind(styles);
-const uuid = () => crypto.randomUUID();
 
 function Register() {
     const [email, setEmail] = useState('');
@@ -25,7 +25,11 @@ function Register() {
     const address = 'TPHCM';
     const phone = '888';
     const avatar = null;
+
     const action = true;
+
+    console.log('uuid: ', typeof uuid());
+    console.log('phone: ', typeof phone);
 
     const hh = useRef();
     const navigate = useNavigate();
@@ -55,7 +59,8 @@ function Register() {
             setPassword('');
             setConfirmPassword('');
         } else {
-            dispatch(register({ uuid, firstName, lastName, nickName, password, address, phone, email, avatar }));
+            const id = uuid();
+            dispatch(register({ id, firstName, lastName, nickName, password, address, phone, email, avatar }));
             // dispatch(fetchUser());
             setEmail('');
             setPassword('');

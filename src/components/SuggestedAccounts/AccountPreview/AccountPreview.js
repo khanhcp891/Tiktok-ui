@@ -21,7 +21,7 @@ function AccountPreview({ data }) {
                     {data.tick && <FontAwesomeIcon className={cx('checkIcon')} icon={faCheckCircle} />}
                 </h4>
                 <p className={cx('name')}>
-                    `${data.last_name} ${data.first_name}`
+                    `{data.last_name} {data.first_name}`
                 </p>
             </div>
             <p className={cx('analytics')}>

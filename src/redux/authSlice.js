@@ -53,9 +53,15 @@ export const register = createAsyncThunk('register', async (body) => {
         },
         // console.log("body 2: " body)
     });
-    const data = await res.json();
-    console.log('1. register: ', data);
-    return data.users;
+    let data = await res.json();
+    // console.log('register', data);
+    if (data.result === null) {
+        data = true;
+    } else {
+        data = false;
+    }
+    // console.log('1. register: ', data);
+    return data;
 });
 
 // export const fetchUser = createAsyncThunk('fetchUser', async (body) => {
@@ -75,7 +81,7 @@ const authSlice = createSlice({
         logout: (state) => {
             state.user = undefined;
             state.status = false;
-            console.log('logout', state.user);
+            // console.log('logout', state.user);
             localStorage.removeItem('user');
             localStorage.removeItem('currentUser');
             // localStorage.clear();
@@ -94,10 +100,10 @@ const authSlice = createSlice({
             state.loading = true;
         },
         [register.fulfilled]: (state, action) => {
-            console.log('3. action: ', action.payload);
+            // console.log('3. action: ', action.payload);
             state.loading = false;
-            state.user.push(action.payload);
-            state.registerStatus = action.payload.action;
+            // state.user.push(action.payload);
+            state.registerStatus = action.payload;
         },
         [register.rejected]: (state, action) => {
             state.loading = true;
@@ -115,8 +121,8 @@ const authSlice = createSlice({
                 if (!action.payload) {
                     state.user = action.payload;
                     state.status = action.payload.action;
-                    console.log('state.user', state.user);
-                    console.log('state.status', action.payload.Action);
+                    // console.log('state.user', state.user);
+                    // console.log('state.status', action.payload.Action);
                     localStorage.setItem('user', JSON.stringify(action.payload));
                     // localStorage.setItem('currentUser', false);
                 } else {

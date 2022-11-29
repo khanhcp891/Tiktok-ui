@@ -61,7 +61,7 @@ function Header() {
     // let currentUser = true;
     const [currentUser, setCurrentUser] = useState(false);
     const checkUser = localStorage.getItem('currentUser');
-    console.log('9');
+    // console.log('9');
 
     // const checkUser = useSelector((state) => state.user.status);
     // console.log('check user: ', checkUser);
@@ -69,11 +69,11 @@ function Header() {
         // const checkUser = localStorage.getItem('currentUser');
         if (checkUser) {
             setCurrentUser(true);
-            console.log('7');
+            // console.log('7');
             // console.log('currentUser in header 1: ', currentUser);
         } else {
             setCurrentUser(false);
-            console.log('8');
+            // console.log('8');
             // console.log('currentUser in header: ', currentUser);
         }
     }, [checkUser]);
@@ -157,13 +157,13 @@ function Header() {
                         </>
                     )}
                     {/* link avatar: https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/6f742a138c51cf4c6ac049ea6f6ff6b4~c5_100x100.jpeg?x-expires=1665720000&x-signature=q6nfAGRV9giHQq0lGQDb%2BDzrA3g%3D */}
-                    <div>{currentUser ? console.log('6') : console.log(currentUser)}</div>
+                    {/* <div>{currentUser ? console.log('6') : console.log(currentUser)}</div> */}
                     {currentUser ? (
                         <Menu items={userMenu} onChange={handleMenuChange}>
                             {currentUser ? (
                                 <Image
                                     className={cx('user-avatar')}
-                                    src="{dataUser.Avatar}"
+                                    src={dataUser.Avatar}
                                     alt="nguyen van" //images
                                     fallback={images.noImage}
                                 />
@@ -179,7 +179,7 @@ function Header() {
                                 {currentUser ? (
                                     <Image
                                         className={cx('user-avatar')}
-                                        src="{dataUser.Avatar}"
+                                        src={dataUser.Avatar}
                                         alt="nguyen van" //images
                                         fallback={images.noImage}
                                     />

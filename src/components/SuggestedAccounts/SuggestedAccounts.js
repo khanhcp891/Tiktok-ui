@@ -11,7 +11,7 @@ function SuggestedAccounts({ label, data = [], onViewChange }) {
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
             {data.map((account) => {
-                <AccountItem key={account.id} data={account} />;
+                return <AccountItem key={account.id} data={account} />;
             })}
 
             <p className={cx('see-all')} onClick={onViewChange}>
