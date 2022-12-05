@@ -2,5 +2,69 @@
 }
 
 .note {
-    margin-bottom: 24px;
+    display: flex;
+    margin-top: 24px;
+}
+
+.cancel {
+    width: 164px;
+    margin-right: 16px;
+    background-color: transparent;
+}
+
+.cancel-btn {
+    box-sizing: border-box;
+    appearance: none;
+    min-width: 96px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    background-clip: padding-box;
+    width: 100%;
+    font-size: 16px;
+    height: 48px;
+    padding-inline: 23px;
+    color: rgba(22, 24, 35, 1);
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(22, 24, 35, 0.12);
+}
+
+.post {
+    width: 164px;
+    background-color: red($color: #000000);
+}
+
+.post-btn {
+    box-sizing: border-box;
+    appearance: none;
+    min-width: 96px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    font-weight: 600px;
+    text-decoration: none;
+    cursor: pointer;
+    background-clip: padding-box;
+    width: 100%;
+    font-size: 16px;
+    height: 48px;
+    padding-inline: 23px;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(254, 44, 85, 1);
+    border-color: rgba(254, 44, 85, 1);
 }

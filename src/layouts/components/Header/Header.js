@@ -28,6 +28,7 @@ const cx = classNames.bind(styles);
 
 const MENU_ITEM = [
     {
+        idMenu: 1,
         icon: <FontAwesomeIcon icon={faLanguage} />,
         title: 'English',
         children: {
@@ -47,11 +48,13 @@ const MENU_ITEM = [
         },
     },
     {
+        idMenu: 2,
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
+        idMenu: 3,
         icon: <FontAwesomeIcon icon={faKeyboard} />,
         title: 'Keyboard shortcuts',
     },
@@ -88,22 +91,26 @@ function Header() {
 
     const userMenu = [
         {
+            idMenu: 4,
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
             to: '/user',
         },
         {
+            idMenu: 5,
             icon: <FontAwesomeIcon icon={faCoins} />,
             title: 'Get coins',
             to: '/coins',
         },
         {
+            idMenu: 6,
             icon: <FontAwesomeIcon icon={faGear} />,
             title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEM,
         {
+            idMenu: 7,
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',
             to: '/logout',

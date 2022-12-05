@@ -16,12 +16,12 @@ function Menu({ children, hideOnClick = true, items = [], onChange = defaultFn }
     const current = history[history.length - 1];
 
     const renderItems = () => {
-        return current.data.map((item, index) => {
-            // console.log('first: ', item);
+        return current.data.map((item) => {
+            // console.log('first: ', item.idMenu);
             const isParent = !!item.children;
             return (
                 <MenuItems
-                    key={index}
+                    key={item.idMenu}
                     data={item}
                     onClick={() => {
                         if (isParent) {

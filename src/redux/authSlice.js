@@ -97,7 +97,7 @@ const authSlice = createSlice({
     name: 'user/login',
     initialState,
     reducers: {
-        addUser: (state, action) => {
+        addUser: (state) => {
             state.user = localStorage.getItem('user');
         },
         logout: (state) => {
@@ -121,7 +121,7 @@ const authSlice = createSlice({
         //     state.user = action.payload;
         // },
         // /*******************REGISTER********************** */
-        [register.pending]: (state, action) => {
+        [register.pending]: (state) => {
             state.loading = true;
         },
         [register.fulfilled]: (state, action) => {
@@ -130,11 +130,11 @@ const authSlice = createSlice({
             // state.user.push(action.payload);
             state.registerStatus = action.payload;
         },
-        [register.rejected]: (state, action) => {
+        [register.rejected]: (state) => {
             state.loading = true;
         },
         // /*************************LOGIN******************************** */
-        [loginByUser.pending]: (state, action) => {
+        [loginByUser.pending]: (state) => {
             state.loading = true;
         },
         [loginByUser.fulfilled]: (state, action) => {
@@ -171,7 +171,7 @@ const authSlice = createSlice({
             state.loading = true;
         },
         /*************************EDIT PROFILE******************************** */
-        [editProfile.pending]: (state, action) => {
+        [editProfile.pending]: (state) => {
             state.loading = true;
         },
         [editProfile.fulfilled]: (state, action) => {
@@ -180,7 +180,7 @@ const authSlice = createSlice({
             state.updateStatus = action.payload;
             console.log('state.updateStatus ', state.updateStatus);
         },
-        [editProfile.rejected]: (state, action) => {
+        [editProfile.rejected]: (state) => {
             state.loading = true;
         },
     },

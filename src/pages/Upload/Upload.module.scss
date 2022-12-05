@@ -44,20 +44,27 @@
     color: rgba(22, 24, 35, 0.5);
 }
 
+.video-preview {
+    width: 260px;
+    height: 607px;
+    margin-top: 24px;
+    background-color: var(--black);
+}
+
 .action {
     display: flex;
     width: 988px;
     height: 631px;
     margin-top: 24px;
     margin-bottom: 130px;
-    background-color: greenyellow;
+    // background-color: greenyellow;
 }
 
 .upload-video {
     width: 260px;
     height: 607px;
     margin-top: 24px;
-    background-color: grey;
+    // background-color: grey;
 }
 
 .note-video {

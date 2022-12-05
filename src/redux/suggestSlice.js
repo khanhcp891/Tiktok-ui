@@ -47,7 +47,7 @@ export const suggestSlice = createSlice({
     name: 'suggestSlice',
     initialState,
     reducers: {
-        suggestUser: (state, action) => {
+        suggestUser: (state) => {
             // console.log('reducer');
             state.user = localStorage.getItem('user');
         },

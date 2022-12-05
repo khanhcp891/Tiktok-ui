@@ -1,0 +1,12 @@
+.range {
+    transform: translate(-70px, -50px) rotate(270deg);
+    // color: white;
+    -webkit-appearance: none;
+    // background-color: rgba(8, 80, 214, 0.644);
+    cursor: pointer;
+    opacity: 1;
+    height: 6px;
+    background: rgba(22, 24, 35, 0.34);
+    border-radius: 32px;
+    width: 64px;
+}

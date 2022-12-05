@@ -10,9 +10,9 @@ const cx = classNames.bind(styles);
 function SuggestedVideo({ data = [] }) {
     return (
         <div className={cx('wrapper')}>
-            {data.map((account, index) => (
-                <div key={index} className={cx('content')}>
-                    <a className={cx('avatar-anchor')} href>
+            {data.map((account) => (
+                <div key={account.id} className={cx('content')}>
+                    <a className={cx('avatar-anchor')} href="true">
                         <Image className={cx('avatar')} src={account.avatar} alt="avatar" />
                     </a>
 

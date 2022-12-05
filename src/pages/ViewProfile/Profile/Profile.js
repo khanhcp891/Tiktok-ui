@@ -19,7 +19,6 @@ function Profile({ infoUser }) {
         return (
             <div>
                 <PopperWrapper className={cx('menu-popper')}>
-                    {/* <AccountPreview data={data} /> */}
                     <ActionShare />
                 </PopperWrapper>
             </div>

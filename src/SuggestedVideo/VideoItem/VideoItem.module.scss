@@ -4,6 +4,10 @@
     align-items: flex-end;
 }
 
+.video-action {
+    position: relative;
+}
+
 .video {
     position: relative;
     box-sizing: border-box;
@@ -13,6 +17,22 @@
     margin-right: 20px;
     overflow: hidden;
     cursor: pointer;
+}
+
+.volume {
+    position: absolute;
+    right: 38px;
+    bottom: 25px;
+    color: white;
+    // background-color: aqua;
+}
+
+.pause-play {
+    position: absolute;
+    right: 265px;
+    bottom: 25px;
+    cursor: pointer;
+    color: white;
 }
 
 .interactive {

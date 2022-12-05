@@ -3,21 +3,15 @@ import styles from './UploadVideo.module.scss';
 
 import { ref, uploadBytesResumable, getDownloadURL } from '@firebase/storage';
 
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { storage } from '~/firebase-config';
 import ConditionUploadVideo from './ConditionUploadVideo';
 
 const cx = classNames.bind(styles);
 
-function UploadVideo() {
-    const [progress, setProgress] = useState(0);
-    const [image, setImage] = useState('');
-
+function UploadVideo({ progress, setImage, setProgress }) {
     const handleSubmit = (e) => {
-        // e.prevenDefault();
-        // console.log('second', e.target);
         const file = e.target.files[0];
-        // console.log('first', file);
         uploadFiles(file);
     };
 
@@ -43,7 +37,6 @@ function UploadVideo() {
     const inputRef = useRef();
 
     const handleClickInput = () => {
-        // console.log('click!', inputRef.current);
         inputRef.current.click();
     };
 
@@ -57,7 +50,7 @@ function UploadVideo() {
                         <ConditionUploadVideo />
                     </div>
                 </form>
-                <h2>upload {progress} % </h2>
+                {/* <h2>upload {progress} % </h2> */}
                 {/* <img src={image} /> */}
             </div>
         </>

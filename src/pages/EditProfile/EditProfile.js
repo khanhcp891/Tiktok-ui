@@ -7,7 +7,6 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editProfile, updateProfile } from '~/redux/authSlice';
 import { useEffect } from 'react';
-import { async } from '@firebase/util';
 
 const cx = classNames.bind(styles);
 

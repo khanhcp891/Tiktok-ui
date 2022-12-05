@@ -12,6 +12,7 @@ function App() {
                     <Route path="*" element={<Error404 />} />
                     <Route path="/" element={<Navigate replace to="/home" />} />
                     {publicRouter.map((route, index) => {
+                        // console.log('router, ', route);
                         // const Layout = route.layout || DefaultLayout;
                         const Page = route.component;
                         let Layout = DefaultLayout;
@@ -24,7 +25,7 @@ function App() {
 
                         return (
                             <Route
-                                key={index}
+                                key={route.idRoute}
                                 path={route.path}
                                 element={
                                     <Layout>
