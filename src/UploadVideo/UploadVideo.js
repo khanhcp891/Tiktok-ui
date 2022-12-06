@@ -3,13 +3,24 @@ import styles from './UploadVideo.module.scss';
 
 import { ref, uploadBytesResumable, getDownloadURL } from '@firebase/storage';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { storage } from '~/firebase-config';
 import ConditionUploadVideo from './ConditionUploadVideo';
+import Loading from '~/components/Loading';
 
 const cx = classNames.bind(styles);
 
 function UploadVideo({ progress, setImage, setProgress }) {
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (progress > 0) {
+            setLoading(true);
+        }
+        // setTimeout(() => {
+        //     setLoading(false);
+        // }, 5000);
+    }, [progress]);
     const handleSubmit = (e) => {
         const file = e.target.files[0];
         uploadFiles(file);
@@ -47,7 +58,13 @@ function UploadVideo({ progress, setImage, setProgress }) {
 
                 <form>
                     <div className={cx('content')} onClick={handleClickInput}>
-                        <ConditionUploadVideo />
+                        {loading ? (
+                            <div className={cx('content-loading')}>
+                                <Loading progress={progress} loading={loading} />
+                            </div>
+                        ) : (
+                            <ConditionUploadVideo />
+                        )}
                     </div>
                 </form>
                 {/* <h2>upload {progress} % </h2> */}

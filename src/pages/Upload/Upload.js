@@ -4,10 +4,9 @@ import UploadVideo from '~/UploadVideo';
 import styles from './Upload.module.scss';
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-import video1 from '~/videos/video1.mp4';
+// import video1 from '~/videos/video1.mp4';
 
 // import { storage } from '~/firebase-config';
-// import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 

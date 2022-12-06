@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.update-loading {
+    margin-top: -53px;
+}
+
+.status-loading {
+    margin-top: 53px;
+}
+
+.cancel-loading-btn {
+    margin-top: 20px;
+    box-sizing: border-box;
+    appearance: none;
+    min-width: 96px;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    background-clip: padding-box;
+    font-size: 14px;
+    height: 28px;
+    padding-inline: 11px;
+    color: rgba(22, 24, 35, 1);
+    background-color: rgba(255, 255, 255, 1);
+    border-color: rgba(22, 24, 35, 0.12);
+}
